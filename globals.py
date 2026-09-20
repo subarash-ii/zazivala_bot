@@ -13,6 +13,9 @@ EMOJIS = [
     e for e in emoji.EMOJI_DATA.keys()
     if len(e) == 1
 ]
+SPECIAL_USER_ID = 6803905517
+SPECIAL_USER_EMOJIS = ["🦜", "🪽", "💜", "💖", "🎸", "🌀"]
+MESSAGE_GROUP_SIZE = 8
 
 if not TOKEN:
     raise ValueError("Bot token is missing")
