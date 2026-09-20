@@ -4,7 +4,6 @@ import time
 from aiogram import Dispatcher, F
 from aiogram.enums import ChatMemberStatus
 from aiogram.types import Message
-from pyrogram.types import User
 
 from globals import PREFIXES, MESSAGE_GROUP_SIZE, CALL_COOLDOWN
 from member_fetcher import get_members
@@ -40,16 +39,6 @@ def register_call_handler(dp: Dispatcher):
             for user in await get_members(message.chat.id)
             if user.username and not user.is_bot
         ]
-
-        users.extend([
-            User(
-                id=100000 + i,
-                is_bot=False,
-                first_name=f"user{i}",
-                username=f"user{i}"
-            )
-            for i in range(1, 61)
-        ])
 
         if not users:
             await message.answer("Не найдено пользователей для призыва.")
