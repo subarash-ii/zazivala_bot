@@ -75,10 +75,6 @@ async def call(message: Message):
             link_preview_options=LinkPreviewOptions(is_disabled=True)
         )
 
-@dp.message(F.text.startswith("!"))
-async def random_emoji(message: Message):
-    await message.answer(random.choice(EMOJIS))
-
 
 async def main():
     print("Bot is running")
