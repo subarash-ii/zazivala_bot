@@ -1,21 +1,37 @@
-from os import getenv
-from dotenv import load_dotenv
+import os
+import unicodedata
+
 import emoji
+from dotenv import load_dotenv
 
 load_dotenv()
 
+TOKEN = os.getenv("TOKEN")
+API_ID = os.getenv("API_ID")
+API_HASH = os.getenv("API_HASH")
 
 PREFIXES = ["call", ".call", "калл", ".калл"]
-TOKEN = getenv("TOKEN")
-API_ID = getenv("API_ID")
-API_HASH = getenv("API_HASH")
-EMOJIS = [
-    e for e in emoji.EMOJI_DATA.keys()
-    if len(e) == 1
-]
+MESSAGE_GROUP_SIZE = 12
+
+CALL_COOLDOWN = 30
+
 SPECIAL_USER_ID = 6803905517
-SPECIAL_USER_EMOJIS = ["🦜", "🪽", "💜", "💖", "🎸", "🌀"]
-MESSAGE_GROUP_SIZE = 8
+SPECIAL_USER_EMOJIS = [
+    "🦜",
+    "🪽",
+    "💜",
+    "💖",
+    "🎸",
+    "🌀",
+]
+
+EMOJIS = [
+    e
+    for e in emoji.EMOJI_DATA
+    if len(e) == 1
+    and unicodedata.category(e) not in ("Mn", "Me")
+]
+
 
 if not TOKEN:
     raise ValueError("Bot token is missing")
