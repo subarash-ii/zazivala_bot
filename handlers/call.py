@@ -49,7 +49,7 @@ def register_call_handler(dp: Dispatcher):
 
             text = "\n".join(
                 f'{get_emoji(user)} '
-                f'<a href="https://t.me/{user.username}">{get_full_name(user)}</a>'
+                f'<a href="tg://user?id={user.id}">{get_full_name(user)}</a>'
                 for user in group
             )
 
