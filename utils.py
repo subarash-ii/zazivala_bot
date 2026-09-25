@@ -4,7 +4,7 @@ import random
 from aiogram.types import Message, LinkPreviewOptions
 from aiogram.exceptions import TelegramRetryAfter
 
-from globals import SPECIAL_USER_ID, SPECIAL_USER_EMOJIS, EMOJIS
+from config import SPECIAL_USER_ID, SPECIAL_USER_EMOJIS, EMOJIS
 
 
 def get_emoji(user):
